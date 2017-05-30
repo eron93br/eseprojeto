@@ -1,7 +1,7 @@
 # Logger of GPS data
 
 
-![alt tag(http://image.ibb.co/cSfjOF/gpsd.png)
+![alt tag](http://image.ibb.co/cSfjOF/gpsd.png)
 
 
 
