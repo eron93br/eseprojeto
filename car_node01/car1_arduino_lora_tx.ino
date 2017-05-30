@@ -2,6 +2,7 @@
  * 
  *             ======== MÓDULO CARRO 01 ==============
  * 
+ *             ========ID_CARRO_01 = 0x55 ============
  * 
  *-------------------------------------------------------------
     Projeto ESE - módulo arduino_LoRa_TX
@@ -113,8 +114,8 @@ void mandaLora()
 {
     Serial.println("Sending to rf95_server");
   // Send a message to rf95_server
-  uint8_t radiopacket[8] = {b2fTemp.b[0] , b2fTemp.b[1], b2fTemp.b[2], b2fTemp.b[3],  b2fTempBastao.b[0],  b2fTempBastao.b[1], 
-   b2fTempBastao.b[2],  b2fTempBastao.b[3]}; 
+  uint8_t radiopacket[10] = {b2fTemp.b[0] , b2fTemp.b[1], b2fTemp.b[2], b2fTemp.b[3],  b2fTempBastao.b[0],  b2fTempBastao.b[1], 
+   b2fTempBastao.b[2],  b2fTempBastao.b[3], velocidade, 0x55}; 
   //char radiopacket[20] = "Hello World #      ";
   
   //itoa(packetnum++, radiopacket+13, 10);
@@ -122,7 +123,7 @@ void mandaLora()
   //radiopacket[19] = 0;
   
   Serial.println("Sending..."); delay(10);
-  rf95.send((uint8_t *)radiopacket, 8);
+  rf95.send((uint8_t *)radiopacket, 10);
  
   Serial.println("Waiting for packet to complete..."); delay(10);
   rf95.waitPacketSent();
