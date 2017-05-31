@@ -40,7 +40,7 @@ void setup()
   Serial.begin(9600);
   delay(50);
   Wire.begin(addrSlaveI2C);    // 
-
+  
   Wire.onRequest(wireRequestEvent); 
   
   // Start the software serial port at the GPS's default baud
@@ -51,6 +51,7 @@ void setup()
   Serial.print(F("Testing TinyGPS++ library v. ")); Serial.println(TinyGPSPlus::libraryVersion());
   Serial.println(F("by Mikal Hart"));
   Serial.println();
+  pinMode(13, OUTPUT);
 }
 
 int velocidade;
@@ -98,10 +99,15 @@ void displayInfo()
     Serial.print(gps.location.lat(), 6);
     Serial.print(F(","));
     Serial.print(gps.location.lng(), 6);
+    digitalWrite(13,LOW);
   }
   else
   {
     Serial.print(F("INVALID"));
+          digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+      delay(5);                       // wait for a second
+          digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+       delay(5);
   }
 
   Serial.print(F("  Date/Time: "));
