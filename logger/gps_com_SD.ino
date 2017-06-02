@@ -16,7 +16,7 @@ File myFile;
 // Choose two Arduino pins to use for software serial
 // The GPS Shield uses D2 and D3 by default when in DLINE mode
 int RXPin = 2;
-int TXPin = 4;
+int TXPin = 3;
 
 // The Skytaq EM-506 GPS module included in the GPS Shield Kit
 // uses 4800 baud by default
