@@ -93,7 +93,7 @@ void loop()
       digitalWrite(LED, HIGH);
       digitalWrite(8, LOW);
       RH_RF95::printBuffer("Received: ", buf, len);
-      Serial.print("Got: ");
+      // Serial.print("Got: ");
       //Serial.println((char*)buf);
       //Serial.print("RSSI: ");
       //Serial.println(rf95.lastRssi(), DEC);
@@ -116,20 +116,18 @@ void loop()
       uint8_t data[] = "RX ok";
       rf95.send(data, sizeof(data));
       rf95.waitPacketSent();
-      Serial.println("Sent a reply");
+      //Serial.println("Sent a reply");
+        distance();
+       Serial.println(km, 4);
     }
     else
     {
-      Serial.println("Receive failed");
+      //Serial.println("Receive failed");
       digitalWrite(8, HIGH);
     }
   }
   // ------------ calcula a distancia entre os dois CARROs -----------------
-  distance();
-  //Serial.print(" A distancia entre os carros --> ");
-  Serial.println(km,4);
- // Serial.println(" ");
-  
+
 }
 
 
@@ -140,7 +138,6 @@ void ajeita()
     b2fTemp.b[1] = buf[1];
     b2fTemp.b[2] = buf[2];
     b2fTemp.b[3] = buf[3];
-
     // b2fTempBastao.f/1000000 é a LONGITUDE!
     b2fTempBastao.b[0] = buf[4];
     b2fTempBastao.b[1] = buf[5];
@@ -151,10 +148,8 @@ void ajeita()
 
 void distance()
 {
-    lat1=radians(lat_carNode1);  // latitude car 1
-    lat2=radians(lat_carNode2);  // latitude car 2
-    lon1=radians(lng_carNode1); // longitude car 1
-    lon2=radians(lng_carNode2); // longitude car 2
+    lat1=radians(lat_carNode1);  lon1=radians(lng_carNode1);      // Latidude & Longitude - Carro 01
+    lat2=radians(lat_carNode2);  lon2=radians(lng_carNode2);      // Latidude & Longitude - Carro 02
     deltaLat=(lat2-lat1);
     deltaLon=(lon2-lon1);
     a= ( sin((deltaLat)/2)*sin((deltaLat)/2) ) + ( cos(lat1)*cos(lat2) ) * ( sin(deltaLon/2)* sin(deltaLon/2) );
@@ -163,3 +158,6 @@ void distance()
     y=deltaLat;
     km=6371*sqrt(x*x + y*y);  
 }
+
+
+
