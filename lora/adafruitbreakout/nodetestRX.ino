@@ -28,7 +28,7 @@ void setup()
   pinMode(RFM95_RST, OUTPUT);
   digitalWrite(RFM95_RST, HIGH);
  
-  while (!Serial);
+  //while (!Serial);
   Serial.begin(9600);
   delay(100);
  
