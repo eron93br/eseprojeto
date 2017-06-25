@@ -1,4 +1,4 @@
-# Codigos finais v0.1 (  0x72,   0x74,    0x00}, // Bw125Cr45Sf128  )
+# Codigos finais v0.1 (0x72, 0x74, 0x00) - Bw125Cr45Sf128 
 
 - Node_RX
 
