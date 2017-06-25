@@ -1,4 +1,4 @@
-# codigos finais do projeto
+# Codigos finais v0.1 (  0x72,   0x74,    0x00}, // Bw125Cr45Sf128  )
 
 - Node_RX
 
@@ -9,3 +9,4 @@ Este codigo tambem calcula a distancia entre os dois carros pela funcao distance
 - Node_TX
 
 Codigo que manda otimizado (com maior velocidade possivel 100ms de waite packet sent) para o No que vai calcular a aproximacao ou gateway.
+
